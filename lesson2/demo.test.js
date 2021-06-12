@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {createObject, runCallback, getData} from './demo';
+import {createObject, runCallback, getData, generateConfig} from './demo';
 jest.mock('axios');
 
 test('执行回调函数1', () => {
@@ -28,4 +28,12 @@ test.only('执行异步函数', async () => {
     await getData().then((data) => {
         expect(data).toBe('success');
     })
+})
+
+test.only('测试配置文件', () => {
+    expect(generateConfig()).toMatchSnapshot(
+        {
+            time: expect.any(Date)
+        }
+    );
 })

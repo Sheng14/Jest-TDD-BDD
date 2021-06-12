@@ -11,3 +11,10 @@ export const createObject = (classItem) => {
 export const getData = () => {
     return Axios.get('/api').then((res) => res.data);
 }
+
+export const generateConfig = () => {
+    return {
+        server: 'http://localhost',
+        time: new Date()
+    }
+}
