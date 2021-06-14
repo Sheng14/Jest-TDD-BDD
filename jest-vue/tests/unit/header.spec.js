@@ -1,6 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
 import Header from '../../src/container/ToDoList/components/header'
 
+it('header样式发生改变，做提示', () => {
+    const wrapper = shallowMount(Header);
+    expect(wrapper).toMatchSnapshot();
+})
+
 it ('header包含input框', () => {
     const wrapper = shallowMount(Header);
     const input = wrapper.find('[data-test = "input"]');
