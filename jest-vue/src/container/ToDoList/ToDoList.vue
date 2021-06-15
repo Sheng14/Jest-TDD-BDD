@@ -1,26 +1,33 @@
 <template>
   <div class="hello">
       <Header @add='addUnDoItem'/>
+      <UnDoList :list="undolist" @delete="handleItemDelete" />
   </div>
 </template>
 
 <script>
 import Header from './components/header'
+import UnDoList from './components/UnDoList'
 
 export default {
   name: 'ToDoList',
   components: {
-    Header
+    Header,
+    UnDoList
   },
   data () {
     return {
-      unDoList: []
+      undolist: []
     }
   },
   methods: {
     addUnDoItem (inputValue) {
-      this.unDoList.push(inputValue)
-      console.log(this.unDoList)
+      this.undolist.push(inputValue)
+      console.log(this.undolist)
+    },
+    handleItemDelete (index) {
+      this.undolist.splice(index, 1)
+      console.log(this.undolist)
     }
   }
 }
