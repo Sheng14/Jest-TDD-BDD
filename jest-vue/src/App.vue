@@ -16,4 +16,7 @@ export default {
 </script>
 
 <style lang="stylus">
+  body {
+    background-color: #cdcdcd;
+  }
 </style>
